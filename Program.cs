@@ -78,6 +78,7 @@ namespace ConsoleApp__un_boxing
                 // of mixedList are objects.
                 Console.WriteLine(item);
             }
+            // -------------------------------------------------------
 
             // The following loop sums the squares of the first group of boxed
             // integers in mixedList. The list elements are objects, and cannot
@@ -113,6 +114,27 @@ namespace ConsoleApp__un_boxing
             // 8
             // 9
             // Sum: 30            
+            // -------------------------------------------------------
+            
+            var structMy = new MyStruct();
+            var structMy2 = (StructInheritance)structMy; // boxing
+            structMy2.Foo();
+            structMy2.Foo();
+            
+            var structMy3 = (MyStruct)structMy2; // unboxing
+            structMy3.Foo();
+        }
+    }
+
+    internal interface StructInheritance
+    {
+        void Foo();
+    }
+
+    internal struct MyStruct : StructInheritance
+    {
+        public void Foo()
+        {
         }
     }
 }
