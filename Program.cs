@@ -28,10 +28,27 @@ namespace ConsoleApp__un_boxing
             long unbox = (long)(int)box; //unboxing
             Console.WriteLine("" + unbox); //boxing
             // -------------------------------------------------------
-            
+
             object? box1 = (int?)null; //boxing
-            long unbox1 = (long)(int)box1; //unboxing (can be null)
-            Console.WriteLine("" + unbox1); //boxing
+            long? unbox1 = (long?)(int?)box1; //unboxing (can be null)
+            Console.WriteLine("d" + unbox1); //boxing
+            
+            // object? box1 = (int?)null; //boxing
+            // long unbox1 = (long)(int)box1; //unboxing (здесь ошибка unboxing к int, а не к int?)
+            // Console.WriteLine("" + unbox1); //boxing
+            // // Ошибка в runtime "System.NullReferenceException: Ссылка на объект не указывает на экземпляр объекта."
+            // -------------------------------------------------------
+            
+            object box2 = (int?)42; //boxing (int)
+            short unbox2 = (short)box2; //unboxing (short)
+            Console.WriteLine("" + unbox2); //boxing
+            // Ошибка в runtime "System.InvalidCastException: Заданное приведение является недопустимым."
+            // -------------------------------------------------------
+            
+            object box3 = (int?)42; //boxing (int)
+            long unbox3 = (long)box3; //unboxing (long)
+            Console.WriteLine("" + unbox3); //boxing
+            // Ошибка в runtime "System.InvalidCastException: Заданное приведение является недопустимым."
             // -------------------------------------------------------
             
             // String.Concat example.
