@@ -19,6 +19,11 @@ namespace ConsoleApp__un_boxing
             Console.WriteLine("" + (int)o); //boxing
             // -------------------------------------------------------
 
+            var intV1 = 10;
+            List<int> list2 = new List<int>();
+            list2.Add(intV1); // В этом случае нету boxing
+            // -------------------------------------------------------
+
             object boxEnum = EnumType.None; //boxing
             long unboxEnum2 = (long)(EnumType2)boxEnum; //unboxing  (EnumType2 а не EnumType!)
             Console.WriteLine("" + unboxEnum2); //boxing
